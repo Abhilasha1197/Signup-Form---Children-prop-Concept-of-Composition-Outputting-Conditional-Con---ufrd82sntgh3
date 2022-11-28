@@ -4,10 +4,15 @@ import '../styles/App.css';
 const App = () => {
   const intialvalue = {name:"",email:"",gender:"",phoneNumber:"",password:"",submit:""};
   const[formvalue,setformvalue] = useState(intialvalue);
+  const [show, setShow]  = useState(false);
 
   const handle = (e) =>{
     setformvalue({...formvalue,[e.target.id]: e.target.value});
+    
+    const print = (e) => {
+      setShow(true);
   }
+}
   return (
     <div id="main">
       <form>
@@ -25,7 +30,7 @@ const App = () => {
          <label>Password</label>
          <input  data-testid = 'password' type='password' value={formvalue.password} onChange={handle}/>
          <label>Submit</label>
-         <input type='submit' data-testid = 'submit' value={formvalue.submit} onChange={handle}/>
+         <input type='submit' data-testid = 'submit' value={formvalue.submit} onClick={print}/>
          
       </form>
     </div>
